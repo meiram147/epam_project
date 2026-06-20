@@ -1,0 +1,18 @@
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h3>Заявки читателей</h3>
+    <div>
+        <a href="?status=WAITING" class="btn btn-sm btn-outline-secondary">Ожидают</a>
+        <a href="?status=ISSUED" class="btn btn-sm btn-outline-secondary">Выданные</a>
+    </div>
+</div>
+<table class="table table-bordered">
+    <thead><tr><th>Читатель</th><th>Книга</th><th>Тип</th><th>Статус</th><th>Действие</th></tr></thead>
+    <tbody>
+        <tr>
+            <td>ivanov@mail.ru</td><td>Война и мир</td><td>На дом</td>
+            <td><span class="badge bg-warning">Ожидает</span></td>
+            <td><button class="btn btn-sm btn-success" data-bs-toggle="modal" data-bs-target="#approveModal">Выдать</button></td>
+        </tr>
+    </tbody>
+</table>
+<!-- Модалка подтверждения выдачи с выбором даты возврата -->

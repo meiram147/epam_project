@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Детали книги</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<body>
+<div class="container mt-4">
+    <div class="card">
+        <div class="card-body">
+            <h2>Гарри Поттер и Философский камень</h2>
+            <p>Автор: Дж.К. Роулинг</p>
+            <p>Доступно экземпляров: <strong id="availableCount">3</strong></p>
+            <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#orderModal">Заказать</button>
+        </div>
+    </div>
+</div>
+
+<!-- Модальное окно заказа -->
+<div class="modal fade" id="orderModal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Оформление заявки</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <form id="orderForm" action="/orders/create" method="post">
+                    <input type="hidden" name="bookId" value="1">
+                    <div class="mb-3">
+                        <label class="form-label">Тип выдачи</label>
+                        <select name="type" class="form-select" id="orderType">
+                            <option value="">-- Выберите --</option>
+                            <option value="HOME">На дом (до 14 дней)</option>
+                            <option value="READING_ROOM">В читальный зал</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Отправить заявку</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+$(document).ready(function(){
+    $("#orderForm").validate({
+        rules: {
+            type: { required: true }
+        },
+        messages: {
+            type: "Выберите тип выдачи"
+        },
+        errorClass: "error",
+        highlight: function(el){ $(el).addClass("is-invalid"); },
+        unhighlight: function(el){ $(el).removeClass("is-invalid"); },
+        submitHandler: function(form) {
+            // можно отправить AJAX или просто submit
+            alert("Заявка отправлена!");
+            form.submit();
+        }
+    });
+});
+</script>
+</body>
+</html>

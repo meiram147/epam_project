@@ -1,0 +1,66 @@
+<!-- Вставка из header.html (в реальном проекте th:replace) -->
+<div class="filter-card">
+    <form id="filterForm" class="row g-3">
+        <div class="col-md-3">
+            <label class="form-label">Искать по</label>
+            <select class="form-select" name="searchField">
+                <option value="title">Названию</option>
+                <option value="author">Автору</option>
+                <option value="genre">Жанру</option>
+            </select>
+        </div>
+        <div class="col-md-5">
+            <label class="form-label">Запрос</label>
+            <input type="text" class="form-control" name="query" placeholder="Введите текст...">
+        </div>
+        <div class="col-md-2 d-flex align-items-end">
+            <button type="submit" class="btn btn-primary w-100">Фильтр</button>
+        </div>
+        <div class="col-md-2 d-flex align-items-end">
+            <a href="index.html" class="btn btn-outline-secondary w-100">Сброс</a>
+        </div>
+    </form>
+</div>
+
+<div class="row row-cols-1 row-cols-md-3 g-4" id="booksGrid">
+    <!-- Карточка книги (пример) -->
+    <div class="col">
+        <div class="card h-100">
+            <div class="card-body">
+                <h5 class="card-title">Гарри Поттер и философский камень</h5>
+                <p class="card-text text-muted">Дж.К. Роулинг</p>
+                <p class="card-text"><small>Жанр: Фэнтези</small></p>
+                <p class="card-text"><strong>Доступно экземпляров: 3</strong></p>
+                <a href="book-detail.html" class="btn btn-sm btn-outline-primary">Подробнее</a>
+            </div>
+        </div>
+    </div>
+    <div class="col">
+        <div class="card h-100">
+            <div class="card-body">
+                <h5 class="card-title">1984</h5>
+                <p class="card-text text-muted">Джордж Оруэлл</p>
+                <p class="card-text"><small>Жанр: Антиутопия</small></p>
+                <p class="card-text"><strong>Доступно: 1</strong></p>
+                <a href="book-detail.html" class="btn btn-sm btn-outline-primary">Подробнее</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Пагинация -->
+<nav aria-label="Page navigation">
+    <ul class="pagination">
+        <li class="page-item disabled"><a class="page-link" href="#">Назад</a></li>
+        <li class="page-item active"><a class="page-link" href="#">1</a></li>
+        <li class="page-item"><a class="page-link" href="#">2</a></li>
+        <li class="page-item"><a class="page-link" href="#">3</a></li>
+        <li class="page-item"><a class="page-link" href="#">Вперед</a></li>
+    </ul>
+</nav>
+
+<!-- footer -->
+<footer>© 2026 Библиотека. Все права защищены.</footer>
+</div>
+</body>
+</html>
